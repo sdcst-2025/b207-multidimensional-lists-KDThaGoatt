@@ -39,9 +39,9 @@ table = [
 
 def target(lvl,ac):
     level = table[lvl]
-    ind = 10 - level[ac]
-
-    return 
+    ind = 10 - ac
+    attack = level[ind]
+    return attack
 
 def tests():
     assert target(5,7) == 11
