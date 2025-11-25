@@ -61,7 +61,8 @@ If the Pokémon becomes enraged, the flame burns fiercely.
 """
 
 
-
+bold = "\033[1m"
+reset = "\033[0m"
 
 pokemon = [
   {
@@ -31847,26 +31848,43 @@ pokemon = [
   }
 ]
 
-choice = input("Enter the ID or english name of your Pokemon: ")
+while True:
+  choice = input("Enter the ID or english name of your Pokemon: ")
 
-for i in pokemon:
-  englishName = i["name"]["english"]
-  pokeID = i["id"]
-  pokeType = i["type"]
-  stats = i["base"]
-  description = i["description"]
+  if choice == "exit":
+     print("quitting...")
+     break
 
-  if choice == pokeID or choice == englishName:
-      print(f"{englishName}! i choose you!".upper())
-      if len(pokeType) == 1:
-        print(f"{englishName} is a {pokeType} type Pokemon")
-      else:
-         typeAmount = len(pokeType)
-         print(f"{englishName} is a", end=" ")
-         for i in range(typeAmount - 1):
-            print(f"{pokeType[i]},", end=" ")
-         print(f"and {pokeType[typeAmount-1]} type Pokemon")
+  try:
+     choice = int(choice)
+  except:
+     choice = str(choice)
 
-      print(stats)
-      print(description)
-    
+  for i in pokemon:
+    englishName = i["name"]["english"]
+    pokeID = i["id"]
+    pokeType = i["type"]
+    try:
+      stats = i["base"]
+      hasStats = True
+    except:
+      stats = "unknown"
+      hasStats = False
+    description = i["description"]
+
+    if choice == pokeID or choice == englishName:
+        print(bold + f"{englishName}! i choose you!".upper() + reset)
+        if len(pokeType) == 1:
+          print(f"{englishName} is a {pokeType} type Pokemon")
+        else:
+          typeAmount = len(pokeType)
+          print(f"{englishName} is a", end=" ")
+          for i in range(typeAmount - 1):
+              print(f"{pokeType[i]},", end=" ")
+          print(f"and {pokeType[typeAmount-1]} type Pokemon")
+        if hasStats == True:
+          for key, value in stats.items():
+            print(f"{key}: {value}")
+        else:
+           print("Stats unknown")
+        print(description)
