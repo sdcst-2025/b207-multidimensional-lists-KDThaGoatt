@@ -10,7 +10,7 @@ use, although you can probably build one faster using iteration or list comprehe
 
 Note that in the list of "games", the first entry has been formatted nicely to help
 you see what the contents of the entry is.  You can see that in the data for the
-first game, BC played YT, and the game was a tie, 0-0
+first game, BC played YT, and the game was a tie, 0 to 0
 '''
 
 teams = ['AB','BC','MN','SK','ON','QC','PE','NS','NB','NL','YT','NT','NU']
