@@ -31847,3 +31847,26 @@ pokemon = [
   }
 ]
 
+choice = input("Enter the ID or english name of your Pokemon: ")
+
+for i in pokemon:
+  englishName = i["name"]["english"]
+  pokeID = i["id"]
+  pokeType = i["type"]
+  stats = i["base"]
+  description = i["description"]
+
+  if choice == pokeID or choice == englishName:
+      print(f"{englishName}! i choose you!".upper())
+      if len(pokeType) == 1:
+        print(f"{englishName} is a {pokeType} type Pokemon")
+      else:
+         typeAmount = len(pokeType)
+         print(f"{englishName} is a", end=" ")
+         for i in range(typeAmount - 1):
+            print(f"{pokeType[i]},", end=" ")
+         print(f"and {pokeType[typeAmount-1]} type Pokemon")
+
+      print(stats)
+      print(description)
+    

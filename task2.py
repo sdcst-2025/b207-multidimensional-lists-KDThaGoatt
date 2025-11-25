@@ -28,12 +28,14 @@ teamData = {team: {'gamesPlayed': 0, 'wins': 0, 'losses': 0, 'ties': 0, 'goalsFo
 for game in games:
     hometeam = game['home']
     homescore = game['homeScore']
-    teamData[hometeam]['gamesPlayed'] += 1
-    teamData[hometeam]['goalsFor'] += homescore
-    teamData[hometeam]['goalsAgainst'] += awayscore
-
+    
     awayteam = game['away']
     awayscore = game['awayScore']
+    
+    teamData[hometeam]['gamesPlayed'] += 1
+    teamData[hometeam]['goalsFor'] += homescore
+    teamData[hometeam]['goalsAgainst'] += awayscore  # Corrected order
+
     teamData[awayteam]['gamesPlayed'] += 1
     teamData[awayteam]['goalsFor'] += awayscore
     teamData[awayteam]['goalsAgainst'] += homescore
